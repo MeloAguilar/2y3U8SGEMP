@@ -1,0 +1,48 @@
+﻿@model Ejercicios2y3Unidad8.Models.Entities.clsPersona
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+</head>
+<body>
+
+    <h4>clsPersona</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Editar">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.Label(Model.Apellidos)<br />
+                    @Html.TextBox("Apellidos", Model.Apellidos)
+                    <span asp-validation-for="Apellidos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    
+                    @Html.LabelFor(m => m.FechaNac)<br />
+                    @Html.TextBoxFor(m => m.FechaNac)
+                    <span asp-validation-for="FechaNac" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</body>
+</html>

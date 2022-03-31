@@ -1,0 +1,53 @@
+﻿@model List<Ejercicios2y3Unidad8.Models.Entities.clsPersona>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+   </div>
+   <hr />
+   <div>
+       <form method="post" class="text-center">
+            <input type="text" name="nombre" />
+            <input type="text" name="apellidos" />
+            <input type="submit" value="Enviar">
+       </form>
+   </div>
+   <table class="table">
+        <thead>
+            <tr>
+                    <td>
+                        @Html.LabelFor(m => m.ElementAt(1).Nombre)
+                    </td>
+
+                    <td>
+                        @Html.LabelFor(m=> m.ElementAt(1).Apellidos)
+                    </td>
+                    <td>
+                        @Html.LabelFor(m => m.ElementAt(1).FechaNac)
+
+                    </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayTextFor(m => item.Nombre)</td>
+                    <td>
+                        @Html.DisplayTextFor(m => item.Apellidos)
+                    </td>
+                    <td>@Html.DisplayTextFor(m => item.FechaNac)</td>
+
+                    <td>
+                        @Html.ActionLink("Editar Persona", "Editar", new { id=item.Id  }) |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   <div>
+       @Html.ActionLink("Editar Persona", "Editar", "Home")
+   </div>
